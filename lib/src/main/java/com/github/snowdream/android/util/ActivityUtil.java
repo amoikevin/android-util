@@ -16,6 +16,7 @@
 
 package com.github.snowdream.android.util;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
@@ -32,6 +33,7 @@ public class ActivityUtil {
      *
      * @param activity
      */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static void restartActivity(Activity activity){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             activity.recreate();
