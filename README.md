@@ -7,7 +7,7 @@ android lib - util
 Android 2.2+
 
 ##Dependencies
-1. android-log [https://github.com/SnowdreamFramework/android-log](https://github.com/SnowdreamFramework/android-log)
+1. android-log [https://github.com/SnowdreamFramework/android-log](https://github.com/SnowdreamFramework/android-log)           
 Check this for more informaion. [build.gradle](https://github.com/SnowdreamFramework/android-util/blob/master/lib/build.gradle)
 
 
