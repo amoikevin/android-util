@@ -26,6 +26,10 @@ import android.webkit.MimeTypeMap;
  * Created by snowdream on 2/7/14.
  */
 public class FileUtil {
+    //Supress default constructor for noninstantiability
+    private FileUtil(){
+        throw new AssertionError();
+    }
 
     /**
      * Get the MimeTypes for the url.

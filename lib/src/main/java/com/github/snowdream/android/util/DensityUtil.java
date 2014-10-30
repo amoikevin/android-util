@@ -3,6 +3,11 @@ package com.github.snowdream.android.util;
 import android.content.Context;
 
 public class DensityUtil {
+    //Supress default constructor for noninstantiability
+    private DensityUtil(){
+        throw new AssertionError();
+    }
+
     public static int dip2px(Context context, int dipValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dipValue * scale + 0.5f);

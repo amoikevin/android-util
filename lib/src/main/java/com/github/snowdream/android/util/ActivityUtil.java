@@ -27,6 +27,10 @@ import android.os.Build;
  * Created by snowdream on 1/29/14.
  */
 public class ActivityUtil {
+    //Supress default constructor for noninstantiability
+    private ActivityUtil(){
+        throw new AssertionError();
+    }
 
     /**
      * Restart the Activity
