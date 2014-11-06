@@ -1,10 +1,12 @@
 package com.github.snowdream.android.util;
 
 import android.content.Context;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 
 public class DensityUtil {
     //Supress default constructor for noninstantiability
-    private DensityUtil(){
+    private DensityUtil() {
         throw new AssertionError();
     }
 
@@ -26,5 +28,54 @@ public class DensityUtil {
     public static int px2sp(Context context, float pxValue) {
         float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (pxValue / fontScale + 0.5f);
+    }
+
+    /**
+     * Conversion in dp、dip、sp、pt、px、mm、in according to the device
+     *
+     * @param context    Context
+     * @param srcUnit    src unit,see {@link android.util.TypedValue}
+     * @param srcValue   src value
+     * @param targetUnit target unit,see {@link android.util.TypedValue}
+     * @return target value
+     */
+    public static float convert(Context context, int srcUnit, float srcValue, int targetUnit) {
+        float targetValue = 0f;
+        if (context == null) {
+            throw new NullPointerException("The Context is Null.");
+        }
+
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        if (metrics == null) {
+            throw new NullPointerException("Can not get DisplayMetrics.");
+        }
+
+        Float pxvalue = TypedValue.applyDimension(srcUnit, srcValue, metrics);
+
+        switch (targetUnit) {
+            case TypedValue.COMPLEX_UNIT_DIP:
+                targetValue = pxvalue / metrics.density;
+                break;
+            case TypedValue.COMPLEX_UNIT_SP:
+                targetValue = pxvalue / metrics.scaledDensity;
+                break;
+            case TypedValue.COMPLEX_UNIT_PX:
+                targetValue = pxvalue;
+                break;
+            case TypedValue.COMPLEX_UNIT_MM:
+                targetValue = (pxvalue * 25.4f) / metrics.xdpi;
+                break;
+            case TypedValue.COMPLEX_UNIT_IN:
+                targetValue = pxvalue / metrics.xdpi;
+                break;
+            case TypedValue.COMPLEX_UNIT_PT:
+                targetValue = (pxvalue * 72) / metrics.xdpi;
+                break;
+            default:
+                targetValue = pxvalue;
+                break;
+        }
+
+        return  targetValue;
     }
 }
