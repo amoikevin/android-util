@@ -10,21 +10,37 @@ public class DensityUtil {
         throw new AssertionError();
     }
 
+    /**
+     * see {@link DensityUtil#convert}
+     */
+    @Deprecated
     public static int dip2px(Context context, int dipValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dipValue * scale + 0.5f);
     }
 
+    /**
+     * see {@link DensityUtil#convert}
+     */
+    @Deprecated
     public static int px2dip(Context context, float pxValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
     }
 
+    /**
+     * see {@link DensityUtil#convert}
+     */
+    @Deprecated
     public static int sp2px(Context context, float spValue) {
         float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * fontScale + 0.5f);
     }
 
+    /**
+     * see {@link DensityUtil#convert}
+     */
+    @Deprecated
     public static int px2sp(Context context, float pxValue) {
         float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (pxValue / fontScale + 0.5f);
@@ -39,7 +55,7 @@ public class DensityUtil {
      * @param targetUnit target unit,see {@link android.util.TypedValue}
      * @return target value
      */
-    public static float convert(Context context, int srcUnit, float srcValue, int targetUnit) {
+    private static float convert1(Context context, int srcUnit, float srcValue, int targetUnit) {
         float targetValue = 0f;
         if (context == null) {
             throw new NullPointerException("The Context is Null.");
@@ -76,6 +92,19 @@ public class DensityUtil {
                 break;
         }
 
-        return  targetValue;
+        return targetValue;
+    }
+
+    /**
+     * Conversion in dp、dip、sp、pt、px、mm、in according to the device
+     *
+     * @param context    Context
+     * @param srcUnit    src unit,see {@link android.util.TypedValue}
+     * @param srcValue   src value
+     * @param targetUnit target unit,see {@link android.util.TypedValue}
+     * @return target value
+     */
+    public static int convert(Context context, int srcUnit, float srcValue, int targetUnit) {
+        return (int) (convert1(context, srcUnit, srcValue, targetUnit) + 0.5f);
     }
 }
