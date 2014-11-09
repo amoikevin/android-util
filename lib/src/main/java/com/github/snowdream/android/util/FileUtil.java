@@ -20,21 +20,16 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
-/**
- * Util for File
- * <p/>
- * Created by snowdream on 2/7/14.
- */
-public class FileUtil {
+public final class FileUtil {
     //Supress default constructor for noninstantiability
-    private FileUtil(){
+    private FileUtil() {
         throw new AssertionError();
     }
 
     /**
      * Get the MimeTypes for the url.
      *
-     * @param url  the url or uri
+     * @param url the url or uri
      * @return MimeTypes
      */
     public static String getMimeTypeFromUrl(String url) {

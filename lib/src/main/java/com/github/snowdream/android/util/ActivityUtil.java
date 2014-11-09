@@ -21,14 +21,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 
-/**
- * Util for Activity
- *
- * Created by snowdream on 1/29/14.
- */
-public class ActivityUtil {
+public final class ActivityUtil {
     //Supress default constructor for noninstantiability
-    private ActivityUtil(){
+    private ActivityUtil() {
         throw new AssertionError();
     }
 
@@ -38,7 +33,7 @@ public class ActivityUtil {
      * @param activity
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static void restartActivity(Activity activity){
+    public static void restartActivity(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             activity.recreate();
         } else {
