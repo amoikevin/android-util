@@ -12,22 +12,19 @@ Check this for more informaion. [build.gradle](https://github.com/SnowdreamFrame
 
 
 ##Download
-Download [the latest jar][1] and all the libraries in the file named build.gradle.   
-[https://github.com/SnowdreamFramework/android-util/blob/master/lib/build.gradle](https://github.com/SnowdreamFramework/android-util/blob/master/lib/build.gradle)
-
-or grab via Maven:
+grab via Maven:
 
 ```xml
 <dependency>
   <groupId>com.github.snowdream.android</groupId>
   <artifactId>util</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
 </dependency>
 ```
 
 or Gradle:
 ```groovy
-    compile 'com.github.snowdream.android:util:0.0.1'
+    compile 'com.github.snowdream.android:util:0.0.2'
 ```
 
 ##License
@@ -46,5 +43,3 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
-
-[1]:https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releases&g=com.github.snowdream.android&a=util&v=0.0.1
