@@ -18,13 +18,13 @@ grab via Maven:
 <dependency>
   <groupId>com.github.snowdream.android</groupId>
   <artifactId>util</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.4</version>
 </dependency>
 ```
 
 or Gradle:
 ```groovy
-    compile 'com.github.snowdream.android:util:0.0.2'
+    compile 'com.github.snowdream.android:util:0.0.4'
 ```
 
 ##License
